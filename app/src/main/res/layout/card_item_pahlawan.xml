@@ -15,31 +15,29 @@
             android:layout_width="75dp"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/tv_nama_pahlawan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/iv_pahlawan"
             android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@id/iv_pahlawan"
             android:text="Nama Pahlawan"
             android:textSize="21sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_tentang_pahlawan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/iv_pahlawan"
-            android:layout_marginLeft="6dp"
             android:layout_below="@id/tv_nama_pahlawan"
-            android:text="Tentang Pahlawan"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@id/iv_pahlawan"
+            android:ellipsize="end"
             android:justificationMode="inter_word"
             android:maxLines="4"
-            android:ellipsize="end"
-            />
+            android:text="Tentang Pahlawan" />
 
     </RelativeLayout>
 
