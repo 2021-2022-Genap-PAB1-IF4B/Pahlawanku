@@ -9,6 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
 import java.util.ArrayList;
 
 public class AdapterCard extends RecyclerView.Adapter<AdapterCard.CardViewHolder> {
@@ -27,7 +30,14 @@ public class AdapterCard extends RecyclerView.Adapter<AdapterCard.CardViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
-        
+        ModelPahlawan pahlawan = dataPahlawan.get(position);
+
+        holder.tvNamaPahlawan.setText(pahlawan.getNama());
+        holder.tvTentangPahlawan.setText(pahlawan.getTentang());
+
+        Glide.with(holder.itemView.getContext())
+                .load(pahlawan.getFoto())
+                .into(holder.ivPahlawan);
     }
 
     @Override
