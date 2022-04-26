@@ -21,6 +21,15 @@ public class AdapterCard extends RecyclerView.Adapter<AdapterCard.CardViewHolder
         this.dataPahlawan = dataPahlawan;
     }
 
+    public interface OnItemClickCallBack {
+        void onItemClicked(ModelPahlawan data);
+    }
+
+    private AdapterGrid.OnItemClickCallBack callBack;
+    public void setOnItemClickCallBack(AdapterGrid.OnItemClickCallBack callBack) {
+        this.callBack = callBack;
+    }
+
     @NonNull
     @Override
     public CardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -38,6 +47,13 @@ public class AdapterCard extends RecyclerView.Adapter<AdapterCard.CardViewHolder
         Glide.with(holder.itemView.getContext())
                 .load(pahlawan.getFoto())
                 .into(holder.ivPahlawan);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                callBack.onItemClicked(dataPahlawan.get(holder.getAdapterPosition()));
+            }
+        });
     }
 
     @Override
